@@ -16,14 +16,6 @@ steps:
     solution: '**/*.sln'
     msbuildArchitecture: 'x64'
     clean: true
-- task: DownloadBuildArtifacts@1
-  inputs:
-    buildType: 'current'
-    downloadType: 'single'
-    downloadPath: '$(System.ArtifactsDirectory)'
-    cleanDestinationFolder: true
-    checkDownloadedFiles: true
-    restoreNugetPackages: true
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(System.ArtifactsDirectory)'
