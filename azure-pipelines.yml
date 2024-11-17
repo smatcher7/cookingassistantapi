@@ -16,13 +16,20 @@ steps:
     solution: '**/*.sln'
     msbuildArchitecture: 'x64'
     clean: true
+- task: DownloadBuildArtifacts@1
+  inputs:
+    buildType: 'current'
+    downloadType: 'single'
+    downloadPath: '$(System.ArtifactsDirectory)'
+    cleanDestinationFolder: true
+    checkDownloadedFiles: true
     restoreNugetPackages: true
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    rootFolderOrFile: '$(System.ArtifactsDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    archiveFile: '$(System.ArtifactsDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 - task: AzureRmWebAppDeployment@4
   inputs:
@@ -30,5 +37,5 @@ steps:
     azureSubscription: 'Azure subscription 1(9dc2b8bb-02e0-4970-8ed0-ae01e7f25ceb)'
     appType: 'webAppLinux'
     WebAppName: 'cookingassistantapi'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    packageForLinux: '$(System.ArtifactsDirectory)/**/*.zip'
     RuntimeStack: 'STATICSITE|1.0'
