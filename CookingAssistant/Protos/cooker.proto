@@ -1,0 +1,72 @@
+﻿syntax = "proto3";
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+option csharp_namespace = "CookingAssistant.Services.Protobuf";
+
+package cooker;
+
+// The greeting service definition.
+service Cooker {
+  // Get List of all known recipes
+  rpc GetAllRecipes (google.protobuf.Empty) returns (GetAllRecipesReply){
+    option (google.api.http) = {
+      get: "/Cooker/GetAllRecipes"
+    };
+  }
+
+  // Get Detail of a certain recipe
+  rpc GetRecipeDetail (GetRecipeDetailRequest) returns (GetRecipeDetailReply){
+    option (google.api.http) = {
+      get: "/Cooker/GetRecipeDetail/{code}"
+    };
+  }
+
+  // Get Recipes that can be cooked with certain ingredients
+  rpc GetRecipesForIngredients (GetRecipesForIngredientsRequest) returns (GetRecipesForIngredientsReply){
+    option (google.api.http) = {
+      get: "/Cooker/GetRecipesForIngredients"
+    };
+  }
+}
+
+message GetAllRecipesReply {
+  repeated recipe recipes = 1;
+
+  message recipe {
+    string code = 1;
+    string name = 2;
+    string description = 3;
+  }
+}
+
+message GetRecipeDetailRequest {
+  string code = 1;
+}
+
+message GetRecipeDetailReply {
+  string code = 1;
+  string name = 2;
+  string description = 3;
+  repeated ingredient ingredients = 4;
+  
+  message ingredient {
+    string code = 1;
+    string name = 2;
+    string quantity = 3;
+  }
+}
+
+message GetRecipesForIngredientsRequest {
+  repeated string ingredients = 1;
+  bool includeRecipesWithMissingIngredients = 2;
+}
+
+message GetRecipesForIngredientsReply {
+  repeated recipe recipes = 1;
+
+  message recipe {
+    string code = 1;
+    string name = 2;
+    string description = 3;
+  }
+}
