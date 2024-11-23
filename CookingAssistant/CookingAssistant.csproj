@@ -9,7 +9,7 @@
     <ItemGroup>
         <PackageReference Include="Grpc.AspNetCore" Version="2.64.0"/>
         <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="9.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
     </ItemGroup>
 
     <ItemGroup>
