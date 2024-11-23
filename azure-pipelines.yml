@@ -15,7 +15,7 @@ steps:
   inputs:
     solution: '**/*.sln'
     msbuildArchitecture: 'x86'
-    clean: true
+    clean: false
     restoreNugetPackages: true
 - task: ArchiveFiles@2
   inputs:
