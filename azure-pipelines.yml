@@ -13,21 +13,6 @@ pool:
 steps:
 - task: MSBuild@1
   inputs:
-    solution: 's/**/*.sln'
+    solution: '**/*.sln'
     msbuildArchitecture: 'x64'
     clean: true
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(System.SourcesDirectory)'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(System.ArtifactsDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Azure subscription 1(9dc2b8bb-02e0-4970-8ed0-ae01e7f25ceb)'
-    appType: 'webAppLinux'
-    WebAppName: 'cookingassistantapi'
-    packageForLinux: '$(System.ArtifactsDirectory)/**/*.zip'
-    RuntimeStack: 'STATICSITE|1.0'
