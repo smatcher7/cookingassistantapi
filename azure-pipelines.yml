@@ -32,10 +32,12 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
-- task: AzureWebApp@1
+- task: AzureRmWebAppDeployment@4
   inputs:
+    ConnectionType: 'AzureRM'
     azureSubscription: 'Azure subscription 1(9dc2b8bb-02e0-4970-8ed0-ae01e7f25ceb)'
-    appType: 'webAppLinux'
-    appName: 'cookingassistantapi'
-    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
-    runtimeStack: 'STATICSITE|1.0'
+    appType: 'webApp'
+    WebAppName: 'cookingassistantapi'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    enableCustomDeployment: true
+    DeploymentType: 'zipDeploy'
