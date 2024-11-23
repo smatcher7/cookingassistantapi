@@ -11,6 +11,10 @@ pool:
   vmImage: windows-2022
 
 steps:
+- task: NuGetToolInstaller@1
+  inputs:
+    versionSpec: 
+    checkLatest: true
 - task: MSBuild@1
   inputs:
     solution: '**/*.sln'
