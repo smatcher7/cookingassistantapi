@@ -15,8 +15,8 @@ steps:
   inputs:
     solution: '**/*.sln'
     msbuildArchitecture: 'x86'
-    clean: false
-    restoreNugetPackages: true
+    clean: true
+    restoreNugetPackages: false
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
