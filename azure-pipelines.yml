@@ -13,7 +13,7 @@ pool:
 steps:
 - task: MSBuild@1
   inputs:
-    solution: '**/*.sln'
+    solution: 's/**/*.sln'
     msbuildArchitecture: 'x64'
     clean: true
 - task: ArchiveFiles@2
