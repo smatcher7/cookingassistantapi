@@ -18,7 +18,7 @@ steps:
     clean: true
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(System.ArtifactsDirectory)'
+    rootFolderOrFile: '$(System.SourcesDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(System.ArtifactsDirectory)/$(Build.BuildId).zip'
