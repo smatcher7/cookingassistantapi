@@ -80,3 +80,6 @@ C:\Users\ruife\RiderProjects\cookingassistantapi\CookingAssistant\obj\Debug\net9
 C:\Users\ruife\RiderProjects\cookingassistantapi\CookingAssistant\obj\Debug\net9.0\CookingAssistant.pdb
 C:\Users\ruife\RiderProjects\cookingassistantapi\CookingAssistant\obj\Debug\net9.0\CookingAssistant.genruntimeconfig.cache
 C:\Users\ruife\RiderProjects\cookingassistantapi\CookingAssistant\obj\Debug\net9.0\ref\CookingAssistant.dll
+C:\Users\ruife\RiderProjects\cookingassistantapi\CookingAssistant\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\ruife\RiderProjects\cookingassistantapi\CookingAssistant\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\ruife\RiderProjects\cookingassistantapi\CookingAssistant\bin\Debug\net9.0\Grpc.AspNetCore.Web.dll
